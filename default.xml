@@ -2,8 +2,12 @@
 <manifest>
 
   <remote  name="aosp"
-           fetch=".."
+           fetch="https://android.googlesource.com"
            review="https://android-review.googlesource.com/" />
+   <!-- This is for projects that live outside of aosp tree -->
+  <remote  name="github"
+           fetch="../.."
+           review="https://github.com/tieto/" />
   <default revision="refs/tags/android-4.2.2_r1"
            remote="aosp"
            sync-j="4" />
@@ -53,7 +57,7 @@
   <project path="external/astl" name="platform/external/astl" />
   <project path="external/bison" name="platform/external/bison" />
   <project path="external/blktrace" name="platform/external/blktrace" />
-  <project path="external/bluetooth/bluedroid" name="platform/external/bluetooth/bluedroid" groups="pdk" />
+  <!-- <project path="external/bluetooth/bluedroid" name="platform/external/bluetooth/bluedroid" groups="pdk" /> -->
   <project path="external/bouncycastle" name="platform/external/bouncycastle" />
   <project path="external/bsdiff" name="platform/external/bsdiff" groups="pdk" />
   <project path="external/bzip2" name="platform/external/bzip2" groups="pdk" />
@@ -225,7 +229,7 @@
   <project path="gdk" name="platform/gdk" />
   <project path="hardware/broadcom/wlan" name="platform/hardware/broadcom/wlan" groups="broadcom_wlan" />
   <project path="hardware/invensense" name="platform/hardware/invensense" groups="invensense" />
-  <project path="hardware/libhardware" name="platform/hardware/libhardware" groups="pdk" />
+  <!-- <project path="hardware/libhardware" name="platform/hardware/libhardware" groups="pdk" /> -->
   <project path="hardware/libhardware_legacy" name="platform/hardware/libhardware_legacy" groups="pdk" />
   <project path="hardware/msm7k" name="platform/hardware/msm7k" />
   <project path="hardware/qcom/audio" name="platform/hardware/qcom/audio" groups="qcom" />
@@ -343,4 +347,10 @@
   <project path="tools/build" name="platform/tools/build" groups="notdefault,tools" />
   <project path="tools/motodev" name="platform/tools/motodev" groups="notdefault,motodev" />
 
+  <!-- replaced projects -->
+  <project remote="github" path="hardware/libhardware" name="hardware-libhardware-include-hardware" revision="master" groups="pdk" />
+  <project remote="github" path="external/bluetooth/bluedroid" name="external-bluetooth-bluedroid" revision="master" groups="pdk" />
+
+  <!-- added projects -->
+  <project remote="github" path="vendor/tieto/bluetooth_test_tools" name="external-btt" revision="master" />
 </manifest>
