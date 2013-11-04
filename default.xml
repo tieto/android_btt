@@ -6,7 +6,7 @@
            review="https://android-review.googlesource.com/" />
    <!-- This is for projects that live outside of aosp tree -->
   <remote  name="github"
-           fetch="../.."
+           fetch="."
            review="https://github.com/tieto/" />
   <default revision="refs/tags/android-4.2.2_r1"
            remote="aosp"
